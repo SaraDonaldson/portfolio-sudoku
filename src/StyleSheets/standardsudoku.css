@@ -37,3 +37,140 @@ p{
 .input-buttons button:hover {
     background-color: rgb(198, 198, 255);
 } 
+
+/* -------------------------------------------------------------------------------------- */
+/* -------- Grid Styling ---------- */
+
+
+.standard-sudoku-grid-container {
+    width: 360px;
+    height: 360px;
+ /* background-color: grey; */
+ background-color: black;
+ background:  radial-gradient(circle, rgba(167,167,255,1) 0%, rgba(22,22,98,1) 82%, rgba(52,53,70,1) 100%);
+ margin: 0 auto;
+ margin-top: 70px;
+ display: flex;
+ flex-wrap: wrap;
+ border:2px solid rgba(223, 117, 255, 0.963);
+ box-shadow:    0 0 20px 3px rgb(236, 174, 255), 
+                -22px -22px 20px 43px hsl(240, 100%, 85%),
+                20px -20px 150px 150px #c4c4fd,
+                30px -30px 300px 300px #19196a,
+                inset 10px -10px 10px 43px hsl(240, 100%, 85%);
+border-radius: 5px;
+}
+
+
+.standard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 360px;
+    height: 360px;
+    border-radius: 5px;
+    
+    
+}
+
+/* ----------------------------------------------------------------- */
+
+.tile {
+    width: 59px;
+    height: 59.5px;
+    color: white;
+    border: 0.1px solid rgb(255, 254, 255);
+    box-shadow: inset 10px 10px 10px rgba(1, 1, 39, 0.764),
+                inset -10px -10px 10px rgb(38, 38, 118);
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(108, 10, 144);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: none !important;
+    border-radius: none;
+    background: radial-gradient(circle, rgba(167,167,255,1) 0%, rgba(22,22,98,1) 82%, rgba(52,53,70,1) 100%);
+}
+
+button {
+    border-radius: none !important;
+}
+
+/* --------------------------------------------------------------------- */
+/* -------- Conditional tile classes ---------- */
+
+
+/* --------Tiles that are not 'clues'---------- */
+.edited {
+    background-color: rgb(249, 245, 245);
+    color: blue;
+}
+.edited button:hover {
+    color: grey;
+}
+
+
+/* --------box section lines---------- */
+.horizontal-divide{
+    border-bottom: 2px solid  rgb(108, 10, 144);
+}
+
+.vertical-divide {
+    border-right: 2px solid  rgb(108, 10, 144);
+
+}
+
+/* --------Clues - cannot be edited---------- */
+.original-nums{
+ background-color: rgb(0, 0, 0);
+ /* border: 2px solid rgb(248, 56, 255); */
+ border: none;
+ transition: 0.4s;
+}
+
+/* --------styles for when tile is selected---------- */
+
+.highlight-axis{
+    background-color:rgb(184, 184, 224);
+}
+.selected {
+    background: none; 
+    background-color:radial-gradient(circle, rgb(8, 8, 64) 0%, rgb(115, 115, 245) 82%, rgb(213, 214, 235) 100%) !important;
+    color: rgb(248, 56, 255);
+    box-shadow: -3px -3px 6px 0.5px #e29aff,
+                5px 5px 10px 1px rgb(11, 11, 92) ,
+                0 0 2px 2px rgb(71, 3, 73),
+                inset 2px 2px 5px 0.1px rgb(254, 219, 255),
+                inset 3px 3px 5px 0.2px rgb(249, 170, 252),
+                inset 1px 1px 8px 1px rgb(224, 7, 232),
+                inset 5px 5px 15px 1px rgb(224, 7, 232);
+    border-radius: 5px;
+    border: 0.5px solid black;
+}
+
+
+.selected-val {
+    background-color: black;
+}
+
+
+
+/* --------feature/button functions---------- */
+.incorrect-answer {
+    color: black;
+    background: radial-gradient(circle, rgb(250, 48, 48) 0%, rgb(252, 245, 245) 82%, rgb(213, 214, 235) 100%) !important;
+}
+
+/* .tile-one {
+    background-color:rgb(227, 201, 251);
+
+}
+
+.tile-two{
+    background-color:rgb(201, 251, 235);
+
+} */

@@ -8,23 +8,32 @@ import ButtonPanelStandardSudoku from './ButtonPanelStandardSudoku';
 
 function GameBoardStandardSudoku() {
     // let cluesArray = handleClues();
-    // let [objectX, setObjectX] =useState();
-    // let [objectY, setObjectY] =useState();
-    // let [activateCheck, setActivateCheck] =useState(false);
-    // let [incorrectTiles, setIncorrectTiles] =useState([]);
+    let [objectX, setObjectX] =useState();
+    let [objectY, setObjectY] =useState();
+    let [activateCheck, setActivateCheck] =useState(false);
+    let [incorrectTiles, setIncorrectTiles] =useState([]);
     let [startData, setStartData] = useState([]);
     let [solutionData, setSolutionData] = useState([]);
-     let [game, setGame] = useState([]);
-    // let userData= userSudokuData.initialData;
+    let [game, setGame] = useState([]);
     let [puzzleID, setPuzzleID] = useState();
+
+    useEffect(() => {
+        getPuzzleData();
+      }, []);
+
+
 
     function chooseGame(puzzleId){
         setPuzzleID(puzzleId)
     }
 
+
     async function getPuzzleData(){
         console.log("puzzleid", puzzleID)
     // function to extract data from the document
+    // If puzzle id = null, set puzzle id as 1
+    // import object from data document
+    // console log the data object
 
 
             // setStartData(puzzles.start_game_data);
@@ -36,6 +45,12 @@ function GameBoardStandardSudoku() {
             // console.log("puzzles" ,puzzles);
     }
 
+
+    function handleSetBothAxis(xAxis, yAxis){
+        setObjectY(yAxis);
+        setObjectX(xAxis);
+     //    setActivateCheck(false);
+     }
 
     // async function editTile (val){
     //     console.log("edit tile started");
@@ -110,7 +125,15 @@ function GameBoardStandardSudoku() {
         </div>
 
 
-        <GridStandardSudoku/>
+        <GridStandardSudoku
+          handleSetBothAxis={handleSetBothAxis}
+          dataObject={game}
+          // handleSetXAxiscb2 = {handleSetXAxis2}
+          // handleSetYAxiscb2 = {handleSetYAxis2}
+        //   cluesArray={cluesArray}
+          incorrectTiles={incorrectTiles}
+          activateCheck={activateCheck}
+        />
         <ButtonPanelStandardSudoku/>
 
 

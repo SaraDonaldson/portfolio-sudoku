@@ -13,9 +13,9 @@ function GridStandardSudoku({dataObject,handleSetBothAxis, cluesArray,incorrectT
   
       return(
         
-          <div className="mini-sudoku-grid">
+          <div className="standard-sudoku-grid-container">
   
-              <div className="mini-grid" key={dataObject.id}>          
+              <div className="standard-grid" key={dataObject.id}>          
         
            {dataObject && dataObject.map((arr, xAxis)  => {
   
