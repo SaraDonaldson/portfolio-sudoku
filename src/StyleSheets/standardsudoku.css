@@ -1,0 +1,39 @@
+
+
+h1{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+}
+h3{
+ background: transparent;
+}
+p{
+    background: transparent;
+}
+
+.input-buttons{
+    background-color: gray;
+    display: grid;
+    width: 360px;
+    height: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+
+}
+
+.input-buttons button {
+    background-color: aliceblue;
+    transition: 0.4s;
+    border: 1px solid lightgray;
+} 
+.input-buttons button:hover {
+    background-color: rgb(198, 198, 255);
+} 

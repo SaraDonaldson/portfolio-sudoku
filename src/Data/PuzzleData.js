@@ -2,8 +2,8 @@ let PuzzleData =[
     
     {
         PuzzleId: 1,
-        startPuzzle: [],
-        solution: [], 
+        startData: [],
+        solutionData: [], 
         puzzleType: "standard"
     },
 
