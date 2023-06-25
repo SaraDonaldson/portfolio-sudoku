@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import GridStandardSudoku from './GridStandardSudoku';
 import ButtonPanelStandardSudoku from './ButtonPanelStandardSudoku';
+import data from '../puzzleData.json';
 
 
 
@@ -22,29 +23,57 @@ function GameBoardStandardSudoku() {
       }, []);
 
 
-
-    function chooseGame(puzzleId){
-        setPuzzleID(puzzleId)
-    }
-
-
     async function getPuzzleData(){
-        console.log("puzzleid", puzzleID)
-    // function to extract data from the document
-    // If puzzle id = null, set puzzle id as 1
-    // import object from data document
-    // console log the data object
+        console.log("data: ", data);
+        setStartData(data.startData);
+        console.log(startData);
+        setSolutionData(data.solutionData);
+        console.log(solutionData);
+        setGame(data.startData);
 
 
-            // setStartData(puzzles.start_game_data);
-            // console.log(startData);
-            // setSolutionData(puzzles.solution_data)
-            // userData= [...startData]
-            // setGame(startData)
-            // console.log(solutionData);
-            // console.log("puzzles" ,puzzles);
+    // fetch('./puzzleData.json'
+    //     ,{
+    //       headers : { 
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //        }})
+    //     .then(function(response){
+    //         console.log(response)
+    //         return response.json();
+    //       })
+    //       .then(function(myJson) {
+    //         console.log(myJson);
+    //     setStartData(myJson.startData);
+    //     console.log(startData);
+    //     setSolutionData(myJson.solutionData);
+    //     console.log(solutionData);
+    //     setGame(myJson.startData);
+    //      return myJson;  
+    //       });
     }
 
+
+
+
+    // function getBooks(){
+    //     fetch('./books.json'
+    //     ,{
+    //       headers : { 
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //        }})
+    //     .then(function(response){
+    //         console.log(response)
+    //         return response.json();
+    //       })
+    //       .then(function(myJson) {
+    //         console.log(myJson);
+    //         //  setBooks(myJson)
+    //          setBooks(myJson.slice(0,20))
+    //          return myJson.slice(0,20)
+    //       });
+    //     }
 
     function handleSetBothAxis(xAxis, yAxis){
         setObjectY(yAxis);
@@ -120,11 +149,8 @@ function GameBoardStandardSudoku() {
 
   return (
     <div>
-        <div className='choose-game-btn-container'>
-            <button onClick={(e)=>chooseGame(1)}>Game 1</button>
-        </div>
-
-
+      
+    
         <GridStandardSudoku
           handleSetBothAxis={handleSetBothAxis}
           dataObject={game}
