@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
+import "../StyleSheets/standardsudoku.css";
 import GridStandardSudoku from './GridStandardSudoku';
 import ButtonPanelStandardSudoku from './ButtonPanelStandardSudoku';
 import data from '../puzzleData.json';
@@ -25,55 +26,10 @@ function GameBoardStandardSudoku() {
 
     async function getPuzzleData(){
         console.log("data: ", data);
-        setStartData(data.startData);
-        console.log(startData);
-        setSolutionData(data.solutionData);
-        console.log(solutionData);
+       await setStartData(data.startData);
+       await setSolutionData(data.solutionData);
         setGame(data.startData);
-
-
-    // fetch('./puzzleData.json'
-    //     ,{
-    //       headers : { 
-    //         'Content-Type': 'application/json',
-    //         'Accept': 'application/json'
-    //        }})
-    //     .then(function(response){
-    //         console.log(response)
-    //         return response.json();
-    //       })
-    //       .then(function(myJson) {
-    //         console.log(myJson);
-    //     setStartData(myJson.startData);
-    //     console.log(startData);
-    //     setSolutionData(myJson.solutionData);
-    //     console.log(solutionData);
-    //     setGame(myJson.startData);
-    //      return myJson;  
-    //       });
     }
-
-
-
-
-    // function getBooks(){
-    //     fetch('./books.json'
-    //     ,{
-    //       headers : { 
-    //         'Content-Type': 'application/json',
-    //         'Accept': 'application/json'
-    //        }})
-    //     .then(function(response){
-    //         console.log(response)
-    //         return response.json();
-    //       })
-    //       .then(function(myJson) {
-    //         console.log(myJson);
-    //         //  setBooks(myJson)
-    //          setBooks(myJson.slice(0,20))
-    //          return myJson.slice(0,20)
-    //       });
-    //     }
 
     function handleSetBothAxis(xAxis, yAxis){
         setObjectY(yAxis);
@@ -81,16 +37,16 @@ function GameBoardStandardSudoku() {
      //    setActivateCheck(false);
      }
 
-    // async function editTile (val){
-    //     console.log("edit tile started");
-    //     console.log("x axis: ", objectX);
-    //     console.log("y axis: ", objectY);
-    //       if (startData[objectX][objectY] <= 0){
-    //           userData[objectX][objectY] = val;
-    //      }
-    //       checkIfWon();
-    //       setActivateCheck(false);
-    //      };
+    async function editTile (val){
+        console.log("edit tile started");
+        console.log("x axis: ", objectX);
+        console.log("y axis: ", objectY);
+          if (startData[objectX][objectY] <= 0){
+              game[objectX][objectY] = val;
+         }
+        //   checkIfWon();
+          setActivateCheck(false);
+         };
 
     // function checkGame (){
     //     let incorrectAnswers= [];
@@ -160,7 +116,12 @@ function GameBoardStandardSudoku() {
           incorrectTiles={incorrectTiles}
           activateCheck={activateCheck}
         />
-        <ButtonPanelStandardSudoku/>
+
+        <div></div>
+        
+        <ButtonPanelStandardSudoku
+        editTile ={editTile}
+        />
 
 
         {/* <div className="checking-buttons">

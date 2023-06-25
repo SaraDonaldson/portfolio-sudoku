@@ -1,11 +1,11 @@
 import React from 'react'
 
-function ButtonPanelStandardSudoku() {
+function ButtonPanelStandardSudoku(editTile) {
   return (
     <div>ButtonPanelStandardSudoku
 
 
-{/* 
+
         <div className="input-buttons">
             <button type="button" className="button-one" onClick={(e)=>editTile(1)}>1</button>
             <button type="button" className="button-two" onClick={(e)=>editTile(2)}>2</button>
@@ -16,7 +16,7 @@ function ButtonPanelStandardSudoku() {
             <button type="button" className="button-four" onClick={(e)=>editTile(7)}>7</button>
             <button type="button" className="button-five" onClick={(e)=>editTile(8)}>8</button>
             <button type="button" className="button-six" onClick={(e)=>editTile(9)}>9</button>
-        </div> */}
+        </div>
 
     </div>
   )

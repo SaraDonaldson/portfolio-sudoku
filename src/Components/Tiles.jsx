@@ -26,11 +26,11 @@ import React,{useState, useEffect} from "react";
 
 
 
-            useEffect(() => {
-            let axisString = (xAxis.toString() + yAxis.toString())
-            let answer =  cluesArray.includes(axisString)
-            setIsOriginalNumber(answer)
-            }, [])
+            // useEffect(() => {
+            // let axisString = (xAxis.toString() + yAxis.toString())
+            // let answer =  cluesArray.includes(axisString)
+            // setIsOriginalNumber(answer)
+            // }, [])
 
 
             useEffect(() => {
@@ -81,6 +81,9 @@ import React,{useState, useEffect} from "react";
                             ${(currentTileVal ===4) && 'tile-four'} 
                             ${(currentTileVal ===5) && 'tile-five'}
                             ${(currentTileVal ===6) && 'tile-six'} 
+                            ${(currentTileVal ===7) && 'tile-seven'} 
+                            ${(currentTileVal ===8) && 'tile-eight'} 
+                            ${(currentTileVal ===9) && 'tile-eight'} 
                             ${(sameAsSelected !==0 & sameAsSelected === currentTileVal) && 'selected-val'} 
                             `}
         onClick={() => {handleClick()}}>{currentTileVal === 0 ? "": currentTileVal}</button>

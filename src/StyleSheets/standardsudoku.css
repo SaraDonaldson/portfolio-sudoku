@@ -20,7 +20,7 @@ p{
     height: 50px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,8 +43,8 @@ p{
 
 
 .standard-sudoku-grid-container {
-    width: 360px;
-    height: 360px;
+    width: 530px;
+    height: 475px;
  /* background-color: grey; */
  background-color: black;
  background:  radial-gradient(circle, rgba(167,167,255,1) 0%, rgba(22,22,98,1) 82%, rgba(52,53,70,1) 100%);
@@ -53,18 +53,14 @@ p{
  display: flex;
  flex-wrap: wrap;
  border:2px solid rgba(223, 117, 255, 0.963);
- box-shadow:    0 0 20px 3px rgb(236, 174, 255), 
-                -22px -22px 20px 43px hsl(240, 100%, 85%),
-                20px -20px 150px 150px #c4c4fd,
-                30px -30px 300px 300px #19196a,
-                inset 10px -10px 10px 43px hsl(240, 100%, 85%);
-border-radius: 5px;
+ border-radius: 5px;
 }
 
 
 .standard-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 360px;
     height: 360px;
     border-radius: 5px;
@@ -79,21 +75,18 @@ border-radius: 5px;
     height: 59.5px;
     color: white;
     border: 0.1px solid rgb(255, 254, 255);
-    box-shadow: inset 10px 10px 10px rgba(1, 1, 39, 0.764),
-                inset -10px -10px 10px rgb(38, 38, 118);
     font-size: 20px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(108, 10, 144);
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
     padding: none !important;
     border-radius: none;
-    background: radial-gradient(circle, rgba(167,167,255,1) 0%, rgba(22,22,98,1) 82%, rgba(52,53,70,1) 100%);
+    background-color: rgb(188, 186, 186);
 }
 
 button {
