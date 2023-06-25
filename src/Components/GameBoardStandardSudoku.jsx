@@ -9,15 +9,15 @@ import data from '../puzzleData.json';
 
 
 function GameBoardStandardSudoku() {
-    // let cluesArray = handleClues();
+    let cluesArray = handleClues();
     let [objectX, setObjectX] =useState();
     let [objectY, setObjectY] =useState();
     let [activateCheck, setActivateCheck] =useState(false);
     let [incorrectTiles, setIncorrectTiles] =useState([]);
-    let [startData, setStartData] = useState([]);
-    let [solutionData, setSolutionData] = useState([]);
+    let [startData, setStartData] = useState(data.startData);
+    let [solutionData, setSolutionData] = useState(data.solutionData);
     let [game, setGame] = useState([]);
-    let [puzzleID, setPuzzleID] = useState();
+
 
     useEffect(() => {
         getPuzzleData();
@@ -26,8 +26,8 @@ function GameBoardStandardSudoku() {
 
     async function getPuzzleData(){
         console.log("data: ", data);
-       await setStartData(data.startData);
-       await setSolutionData(data.solutionData);
+    //    setStartData(data.startData);
+    //    setSolutionData(data.solutionData);
         setGame(data.startData);
     }
 
@@ -48,6 +48,35 @@ function GameBoardStandardSudoku() {
           setActivateCheck(false);
          };
 
+
+
+         function handleClues() {
+            let initialClues= [];
+            let xcount= 0;
+            let ycount= 0;
+            let dataKey= data.startData;
+        
+            for (let i of dataKey){
+                for (let j of i){
+                if(xcount <= dataKey.length){
+                        let val= dataKey[xcount][ycount];
+                if ( val !== 0){
+                let xstring = xcount.toString();
+                let ystring = ycount.toString();           
+                    initialClues.push(xstring+ystring);
+                    }  ycount+=1;
+                }
+            } xcount += 1; 
+            ycount = 0;  
+        }   
+            return initialClues
+        }
+
+
+     // Checking buttons Panel funtions
+/* ---------------------------------------------- */
+
+        
     function checkGame (){
         let incorrectAnswers= [];
         let correct= 0;
@@ -113,7 +142,7 @@ function GameBoardStandardSudoku() {
           dataObject={game}
           // handleSetXAxiscb2 = {handleSetXAxis2}
           // handleSetYAxiscb2 = {handleSetYAxis2}
-        //   cluesArray={cluesArray}
+          cluesArray={cluesArray}
           incorrectTiles={incorrectTiles}
           activateCheck={activateCheck}
         />

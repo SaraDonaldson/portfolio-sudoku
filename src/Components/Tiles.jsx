@@ -26,11 +26,11 @@ import React,{useState, useEffect} from "react";
 
 
 
-            // useEffect(() => {
-            // let axisString = (xAxis.toString() + yAxis.toString())
-            // let answer =  cluesArray.includes(axisString)
-            // setIsOriginalNumber(answer)
-            // }, [])
+            useEffect(() => {
+            let axisString = (xAxis.toString() + yAxis.toString())
+            let answer =  cluesArray.includes(axisString)
+            setIsOriginalNumber(answer)
+            }, [])
 
 
             useEffect(() => {
