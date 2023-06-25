@@ -17,6 +17,7 @@ function GameBoardStandardSudoku() {
     let [startData, setStartData] = useState(data.startData);
     let [solutionData, setSolutionData] = useState(data.solutionData);
     let [game, setGame] = useState([]);
+    let userGame = [];
 
 
     useEffect(() => {
@@ -29,6 +30,7 @@ function GameBoardStandardSudoku() {
     //    setStartData(data.startData);
     //    setSolutionData(data.solutionData);
         setGame(data.startData);
+        userGame =data.startData;
     }
 
     function handleSetBothAxis(xAxis, yAxis){
@@ -38,12 +40,14 @@ function GameBoardStandardSudoku() {
      }
 
     async function editTile (val){
+        userGame= game;
         console.log("edit tile started");
         console.log("x axis: ", objectX);
         console.log("y axis: ", objectY);
           if (startData[objectX][objectY] <= 0){
-              game[objectX][objectY] = val;
+              userGame[objectX][objectY] = val;
          }
+         setGame(userGame);
         //   checkIfWon();
           setActivateCheck(false);
          };
@@ -150,7 +154,7 @@ function GameBoardStandardSudoku() {
         <div></div>
 
         <ButtonPanelStandardSudoku
-        editTile ={editTile}
+        editTile={editTile}
         />
 
 
