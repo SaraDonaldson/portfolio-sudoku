@@ -48,59 +48,60 @@ function GameBoardStandardSudoku() {
           setActivateCheck(false);
          };
 
-    // function checkGame (){
-    //     let incorrectAnswers= [];
-    //     let correct= 0;
-    //     let solutionKey= solutionData;
-    //     let userKey= userData;
-    //     console.log("checkgame function started");
-    //     if (solutionKey === userKey){
-    //     console.log("Everything is correct!");
-    //     //pause timer, save time
-    //     //start Game is won function
-    //  } 
-    // else{ 
-    //     for(let i= 0; i <= 5; i++){
-    //         for(let j=0; j<= 5; j++){
-    //         if (solutionKey[i][j] !== userKey[i][j]){
-    //             let xstring = i.toString();
-    //             let ystring = j.toString();
-    //             incorrectAnswers.push(xstring+ystring);
-    //         } else if (solutionKey[i][j] === userKey[i][j]){
-    //             correct+=1;
-    //         }   
-    //         }  
-    //     }    console.log("number of correct answers:", correct);
-    //         console.log("number of incorrect answers:", incorrectAnswers.length);
-    //         console.log("incorrect: ", incorrectAnswers);
-    //         setIncorrectTiles(incorrectAnswers);
-    //         setActivateCheck(true);
-    //          return incorrectAnswers;
+    function checkGame (){
+        let incorrectAnswers= [];
+        let correct= 0;
+        let solutionKey= solutionData;
+        let userKey= game;
+        console.log("checkgame function started");
+        if (solutionKey === userKey){
+        console.log("Everything is correct!");
+        //pause timer, save time
+        //start Game is won function
+     } 
+    else{ 
+        for(let i= 0; i <= 5; i++){
+            for(let j=0; j<= 5; j++){
+            if (solutionKey[i][j] !== userKey[i][j]){
+                let xstring = i.toString();
+                let ystring = j.toString();
+                incorrectAnswers.push(xstring+ystring);
+            } else if (solutionKey[i][j] === userKey[i][j]){
+                correct+=1;
+            }   
+            }  
+        }    console.log("number of correct answers:", correct);
+            console.log("number of incorrect answers:", incorrectAnswers.length);
+            console.log("incorrect: ", incorrectAnswers);
+            setIncorrectTiles(incorrectAnswers);
+            setActivateCheck(true);
+             return incorrectAnswers;
+            }
+        }
 
 
-
-    // function deleteNumber(){
-    //     console.log("del number started");
-    //     console.log("x axis: ", objectX);
-    //     console.log("y axis: ", objectY);
-    //       if (startData[objectX][objectY] === 0){
-    //           userData[objectX][objectY] = 0;}
-    //           setActivateCheck(false);
-    //      }
+    function deleteNumber(){
+        console.log("del number started");
+        console.log("x axis: ", objectX);
+        console.log("y axis: ", objectY);
+          if (startData[objectX][objectY] === 0){
+              game[objectX][objectY] = 0;}
+              setActivateCheck(false);
+         }
     
-    // function resetBoard (){
-    //    let initial= startData
-    //    let user= userData;
-    //    console.log("reset board function started");
+    function resetBoard (){
+       let initial= startData
+       let user= game;
+       console.log("reset board function started");
      
-    //    for(let i= 0; i <= 5; i++){
-    //        for(let j=0; j<= 5; j++){
-    //        if (initial[i][j] !== user[i][j]){
-    //            user[i][j]=0;
-    //        } } }  
-    //        //reset timer  
-    //        setActivateCheck(false);
-    //     }
+       for(let i= 0; i <= 5; i++){
+           for(let j=0; j<= 5; j++){
+           if (initial[i][j] !== user[i][j]){
+               user[i][j]=0;
+           } } }  
+           //reset timer  
+           setActivateCheck(false);
+        }
 
 
   return (
@@ -118,17 +119,17 @@ function GameBoardStandardSudoku() {
         />
 
         <div></div>
-        
+
         <ButtonPanelStandardSudoku
         editTile ={editTile}
         />
 
 
-        {/* <div className="checking-buttons">
+        <div className="checking-buttons">
             <button type="button" onClick={(e)=>resetBoard()}>Reset Game</button>
             <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
             <button type="button" onClick={(e)=>deleteNumber()}>del</button>
-        </div> */}
+        </div>
 
     </div>
   )

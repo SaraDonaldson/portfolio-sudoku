@@ -86,7 +86,7 @@ p{
     overflow: hidden;
     padding: none !important;
     border-radius: none;
-    background-color: rgb(188, 186, 186);
+    background-color: rgba(188, 186, 186, 0.788);
 }
 
 button {
