@@ -99,8 +99,8 @@ button {
 
 /* --------Tiles that are not 'clues'---------- */
 .edited {
-    background-color: rgb(249, 245, 245);
-    color: blue;
+    background-color: rgb(215, 215, 215);
+    color: rgb(0, 0, 0);
 }
 .edited button:hover {
     color: grey;
