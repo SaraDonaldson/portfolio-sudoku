@@ -16,7 +16,7 @@ function GameBoardStandardSudoku() {
     let [incorrectTiles, setIncorrectTiles] =useState([]);
     let [startData, setStartData] = useState(data.startData);
     let [solutionData, setSolutionData] = useState(data.solutionData);
-    let [userGame, setUserGame] = useState(data.userGame)
+    let [userGame, setUserGame] = useState([])
     let [game, setGame] = useState([]);
     // let userGame = [];
 
@@ -30,8 +30,9 @@ function GameBoardStandardSudoku() {
         console.log("data: ", data);
     //    setStartData(data.startData);
     //    setSolutionData(data.solutionData);
-        setGame([...data.startData]);
-        userGame = [...data.startData];
+        setUserGame(data.userGame);
+        setGame([...data.userGame]);
+    
     }
 
     function handleSetBothAxis(xAxis, yAxis){
@@ -41,16 +42,18 @@ function GameBoardStandardSudoku() {
      }
 
     async function editTile (val){
-        userGame= game;
+       setUserGame(game);
+       let tempGame = [...userGame];
         console.log("edit tile started");
         console.log("x axis: ", objectX);
         console.log("y axis: ", objectY);
           if (startData[objectX][objectY] <= 0){
-              userGame[objectX][objectY] = val;
+              tempGame[objectX][objectY] = val;
          }
          console.log("startData: ", startData);
          console.log("userGame: ", userGame);
-         setGame(userGame);
+         setGame(tempGame);
+         setUserGame(tempGame);
         //   checkIfWon();
           setActivateCheck(false);
          };
@@ -61,7 +64,7 @@ function GameBoardStandardSudoku() {
             let initialClues= [];
             let xcount= 0;
             let ycount= 0;
-            let dataKey= data.startData;
+            let dataKey= [...data.startData];
         
             for (let i of dataKey){
                 for (let j of i){
@@ -98,7 +101,7 @@ function GameBoardStandardSudoku() {
     else{ 
         for(let i= 0; i <= 8; i++){
             for(let j=0; j<= 8; j++){
-            if (solutionKey[i][j] !== userKey[i][j]){
+            if (userKey[i][j] !== 0 && solutionKey[i][j] !== userKey[i][j]){
                 let xstring = i.toString();
                 let ystring = j.toString();
                 incorrectAnswers.push(xstring+ystring);
