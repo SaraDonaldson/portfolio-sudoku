@@ -93,8 +93,8 @@ function GameBoardStandardSudoku() {
         //start Game is won function
      } 
     else{ 
-        for(let i= 0; i <= 5; i++){
-            for(let j=0; j<= 5; j++){
+        for(let i= 0; i <= 8; i++){
+            for(let j=0; j<= 8; j++){
             if (solutionKey[i][j] !== userKey[i][j]){
                 let xstring = i.toString();
                 let ystring = j.toString();
