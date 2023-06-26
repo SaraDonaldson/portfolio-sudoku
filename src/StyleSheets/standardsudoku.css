@@ -43,8 +43,8 @@ p{
 
 
 .standard-sudoku-grid-container {
-    width: 530px;
-    height: 475px;
+    width: 531px;
+    height: 535px;
  /* background-color: grey; */
  background-color: black;
  background:  radial-gradient(circle, rgba(167,167,255,1) 0%, rgba(22,22,98,1) 82%, rgba(52,53,70,1) 100%);
@@ -119,17 +119,18 @@ button {
 
 /* --------Clues - cannot be edited---------- */
 .original-nums{
- background-color: rgb(0, 0, 0);
- /* border: 2px solid rgb(248, 56, 255); */
- border: none;
+ background-color:rgb(184, 184, 224);
+ border: 0.5px solid rgb(255, 255, 255);
+ box-shadow: inset -1px -1px 6px 2px #2a023a39;
  transition: 0.4s;
+ color: rgb(161, 6, 167);
 }
 
 /* --------styles for when tile is selected---------- */
 
-.highlight-axis{
+/* .highlight-axis{
     background-color:rgb(184, 184, 224);
-}
+} */
 .selected {
     background: none; 
     background-color:radial-gradient(circle, rgb(8, 8, 64) 0%, rgb(115, 115, 245) 82%, rgb(213, 214, 235) 100%) !important;
