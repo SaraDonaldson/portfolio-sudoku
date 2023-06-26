@@ -16,8 +16,9 @@ function GameBoardStandardSudoku() {
     let [incorrectTiles, setIncorrectTiles] =useState([]);
     let [startData, setStartData] = useState(data.startData);
     let [solutionData, setSolutionData] = useState(data.solutionData);
+    let [userGame, setUserGame] = useState(data.userGame)
     let [game, setGame] = useState([]);
-    let userGame = [];
+    // let userGame = [];
 
 
     useEffect(() => {
@@ -29,8 +30,8 @@ function GameBoardStandardSudoku() {
         console.log("data: ", data);
     //    setStartData(data.startData);
     //    setSolutionData(data.solutionData);
-        setGame(data.startData);
-        userGame =data.startData;
+        setGame([...data.startData]);
+        userGame = [...data.startData];
     }
 
     function handleSetBothAxis(xAxis, yAxis){
@@ -47,6 +48,8 @@ function GameBoardStandardSudoku() {
           if (startData[objectX][objectY] <= 0){
               userGame[objectX][objectY] = val;
          }
+         console.log("startData: ", startData);
+         console.log("userGame: ", userGame);
          setGame(userGame);
         //   checkIfWon();
           setActivateCheck(false);
@@ -117,22 +120,19 @@ function GameBoardStandardSudoku() {
         console.log("del number started");
         console.log("x axis: ", objectX);
         console.log("y axis: ", objectY);
-          if (startData[objectX][objectY] === 0){
-              game[objectX][objectY] = 0;}
+        console.log("startData", startData[objectX][objectY]);
+        console.log("game Data", game[objectX][objectY]);
+        console.log("userGame", userGame[objectX][objectY]);
+        userGame = game; 
+        if (startData[objectX][objectY] === 0){
+            userGame[objectX][objectY] = 0;
+       }
+              setGame(userGame);
               setActivateCheck(false);
          }
     
     function resetBoard (){
-       let initial= startData
-       let user= game;
-       console.log("reset board function started");
-     
-       for(let i= 0; i <= 5; i++){
-           for(let j=0; j<= 5; j++){
-           if (initial[i][j] !== user[i][j]){
-               user[i][j]=0;
-           } } }  
-           //reset timer  
+        getPuzzleData();
            setActivateCheck(false);
         }
 
