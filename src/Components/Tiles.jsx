@@ -73,8 +73,8 @@ import React,{useState, useEffect} from "react";
                             ${isOriginalNumber && 'original-nums'}
                             ${isIncorrect && 'incorrect-answer'}
                             ${(currentTileVal !== 0 & ! isOriginalNumber) && 'edited'} 
-                            ${(xAxis === 2) && 'horizontal-divide'} 
-                            ${(yAxis === 1 || yAxis === 3) && 'vertical-divide'} 
+                            ${(xAxis === 2 || xAxis === 5) && 'horizontal-divide'} 
+                            ${(yAxis === 2 || yAxis === 5) && 'vertical-divide'} 
                             ${(currentTileVal ===1) && 'tile-one'} 
                             ${(currentTileVal ===2) && 'tile-two'} 
                             ${(currentTileVal ===3) && 'tile-three'} 

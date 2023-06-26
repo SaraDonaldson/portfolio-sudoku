@@ -52,7 +52,7 @@ p{
  margin-top: 70px;
  display: flex;
  flex-wrap: wrap;
- border:2px solid rgba(223, 117, 255, 0.963);
+ border:2px solid  rgb(108, 10, 144);
  border-radius: 5px;
 }
 
@@ -107,15 +107,6 @@ button {
 }
 
 
-/* --------box section lines---------- */
-.horizontal-divide{
-    border-bottom: 2px solid  rgb(108, 10, 144);
-}
-
-.vertical-divide {
-    border-right: 2px solid  rgb(108, 10, 144);
-
-}
 
 /* --------Clues - cannot be edited---------- */
 .original-nums{
@@ -151,6 +142,15 @@ button {
     background-color: black;
 }
 
+/* --------box section lines---------- */
+.horizontal-divide{
+    border-bottom: 2px solid  rgb(108, 10, 144);
+}
+
+.vertical-divide {
+    border-right: 2px solid  rgb(108, 10, 144) !important;
+
+}
 
 
 /* --------feature/button functions---------- */
