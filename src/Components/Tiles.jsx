@@ -68,7 +68,7 @@ import React,{useState, useEffect} from "react";
 
         <button  className={`
                             tile 
-                            ${(xAxis === selectedXAxis && yAxis === selectedYAxis ) && 'selected'} 
+                            ${(xAxis === selectedXAxis && yAxis === selectedYAxis && !isOriginalNumber) && 'selected'} 
                             ${(xAxis === selectedXAxis || yAxis === selectedYAxis )&& 'highlight-axis'}
                             ${isOriginalNumber && 'original-nums'}
                             ${isIncorrect && 'incorrect-answer'}
@@ -83,7 +83,7 @@ import React,{useState, useEffect} from "react";
                             ${(currentTileVal ===6) && 'tile-six'} 
                             ${(currentTileVal ===7) && 'tile-seven'} 
                             ${(currentTileVal ===8) && 'tile-eight'} 
-                            ${(currentTileVal ===9) && 'tile-eight'} 
+                            ${(currentTileVal ===9) && 'tile-nine'} 
                             ${(sameAsSelected !==0 & sameAsSelected === currentTileVal) && 'selected-val'} 
                             `}
         onClick={() => {handleClick()}}>{currentTileVal === 0 ? "": currentTileVal}</button>
