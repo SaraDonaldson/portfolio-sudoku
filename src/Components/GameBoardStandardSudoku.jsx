@@ -18,15 +18,19 @@ function GameBoardStandardSudoku() {
     let [solutionData, setSolutionData] = useState(data.solutionData);
     let [userGame, setUserGame] = useState([])
     let [game, setGame] = useState([]);
+    let [resetGame, setResetGame]= useState(false);
+   
     // let userGame = [];
 
 
     useEffect(() => {
         getPuzzleData();
       }, []);
+      
+    
 
 
-    async function getPuzzleData(){
+ function getPuzzleData(){
         console.log("data: ", data);
     //    setStartData(data.startData);
     //    setSolutionData(data.solutionData);
@@ -34,6 +38,8 @@ function GameBoardStandardSudoku() {
         setGame([...data.userGame]);
     
     }
+
+
 
     function handleSetBothAxis(xAxis, yAxis){
         setObjectY(yAxis);
@@ -135,7 +141,28 @@ function GameBoardStandardSudoku() {
          }
     
     function resetBoard (){
-        getPuzzleData();
+        let tempGame = userGame;
+        let xcount= 0;
+        let ycount= 0;
+        let dataKey= [...data.startData];
+    
+        for (let i of dataKey){
+            for (let j of i){
+            if(xcount <= dataKey.length){
+                    let val= dataKey[xcount][ycount];
+            if ( val === 0){
+            let xstring = xcount.toString();
+            let ystring = ycount.toString();           
+            tempGame[xcount][ycount]= 0;
+            console.log("temp game: ", tempGame);               
+        }  ycount+=1;
+            }
+        } xcount += 1; 
+        ycount = 0;  
+    } 
+           checkGame();
+           setGame(tempGame);
+           setUserGame(tempGame);
            setActivateCheck(false);
         }
 
@@ -175,6 +202,7 @@ function GameBoardStandardSudoku() {
 
         <div className="checking-buttons">
             <button type="button" onClick={(e)=>resetBoard()}>Reset Game</button>
+            {/* <button type="button" onClick={(e)=>setResetGame(true)}>Reset Game</button> */}
             <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
             <button type="button" onClick={(e)=>deleteNumber()}>del</button>
         </div>
