@@ -4,6 +4,7 @@ import "../StyleSheets/standardsudoku.css";
 import GridStandardSudoku from './GridStandardSudoku';
 import ButtonPanelStandardSudoku from './ButtonPanelStandardSudoku';
 import data from '../puzzleData.json';
+import ResetModal from './ResetModal';
 
 
 
@@ -19,6 +20,8 @@ function GameBoardStandardSudoku() {
     let [userGame, setUserGame] = useState([])
     let [game, setGame] = useState([]);
     let [resetGame, setResetGame]= useState(false);
+    // const [buttonPopup, setButtonPopup]= useState (false)
+    const [resetModalBtn, setResetModalBtn]= useState (false);
    
     // let userGame = [];
 
@@ -141,6 +144,7 @@ function GameBoardStandardSudoku() {
          }
     
     function resetBoard (){
+        setResetModalBtn(true);
         let tempGame = userGame;
         let xcount= 0;
         let ycount= 0;
@@ -206,6 +210,14 @@ function GameBoardStandardSudoku() {
             <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
             <button type="button" onClick={(e)=>deleteNumber()}>del</button>
         </div>
+
+        <div className="reset-modal">
+            <ResetModal
+            trigger= {resetModalBtn} 
+            setTrigger={setResetModalBtn}
+            >
+            </ResetModal>
+      </div>
 
     </div>
   )
