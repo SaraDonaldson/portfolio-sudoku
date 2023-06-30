@@ -8,8 +8,6 @@ import ResetModal from './ResetModal';
 import YouWinModal from './YouWinModal';
 
 
-
-
 function GameBoardStandardSudoku() {
     let cluesArray = handleClues();
     let [objectX, setObjectX] =useState();
@@ -23,34 +21,35 @@ function GameBoardStandardSudoku() {
     let [resetGame, setResetGame]= useState(false);
     const [resetModalBtn, setResetModalBtn]= useState (false);
     const [winnerModalBtn, setWinnerModalBtn]= useState (false);
+  
    
    
 
-
+    // render puzzle data
     useEffect(() => {
         getPuzzleData();
       }, []);
       
-    
 
 
- function getPuzzleData(){
-        console.log("data: ", data);
-    //    setStartData(data.startData);
-    //    setSolutionData(data.solutionData);
-        setUserGame(data.userGame);
-        setGame([...data.userGame]);
-    
-    }
+    // fetch from JSON file
+    // fetch from DB by puzzle ID from menu (original)
+    function getPuzzleData(){
+            console.log("data: ", data);
+            setUserGame(data.userGame);
+            setGame([...data.userGame]);
+        }
 
-
-
+    // Identify current selected tile by array(x) and array index(y)
+    // use in checking functions and pass as prop for conditional CSS
     function handleSetBothAxis(xAxis, yAxis){
         setObjectY(yAxis);
         setObjectX(xAxis);
      //    setActivateCheck(false);
      }
 
+    // edit the selected tile as an array item (x and y are the array and index no)
+    //If not an initial clue, save the entered value to the current game data array
     async function editTile (val){
        setUserGame(game);
        let tempGame = [...userGame];
@@ -60,16 +59,15 @@ function GameBoardStandardSudoku() {
           if (startData[objectX][objectY] <= 0){
               tempGame[objectX][objectY] = val;
          }
-         console.log("startData: ", startData);
-         console.log("userGame: ", userGame);
          setGame(tempGame);
          setUserGame(tempGame);
          checkIfWon()
-          setActivateCheck(false);
+         setActivateCheck(false);
          };
 
 
-
+        // saves the x and y axis of initial clues at the start of the game
+        // to handle conditional css styling - pass as prop
          function handleClues() {
             let initialClues= [];
             let xcount= 0;
@@ -89,24 +87,31 @@ function GameBoardStandardSudoku() {
             } xcount += 1; 
             ycount = 0;  
         }   
+        console.log("initial clues: ", initialClues)
             return initialClues
         }
 
 
-
+      
+        // compare solution array to game array by items
+        // if count reaches 81, the game is won
         function checkIfWon(){
-            let possibleWinner= game;
+            let correct= 0;
 
-            console.log("check if won function started");
-            if (game === solutionData){
-            console.log("Everything is correct!");
+            for(let i= 0; i <= 8; i++){
+                for(let j=0; j<= 8; j++){
+                if (solutionData[i][j] === userGame[i][j]){
+                   correct += 1
+                    }
+                }
+            } if (correct === 81){
                 setWinnerModalBtn(true);
-         }  
+            }
         }
 
         
 
-     // Checking buttons Panel funtions
+     // functions triggered by buttons
 /* ---------------------------------------------- */
 
         
@@ -116,11 +121,8 @@ function GameBoardStandardSudoku() {
         let solutionKey= solutionData;
         let userKey= game;
         console.log("checkgame function started");
-        if (solutionKey === userKey){
-        console.log("Everything is correct!");
-        setWinnerModalBtn(true);
-     } 
-    else{ 
+     
+    
         for(let i= 0; i <= 8; i++){
             for(let j=0; j<= 8; j++){
             if (userKey[i][j] !== 0 && solutionKey[i][j] !== userKey[i][j]){
@@ -131,13 +133,8 @@ function GameBoardStandardSudoku() {
                 correct+=1;
             }   
             }  
-        }   if (correct.length === 81){
-            console.log("Everything is correct!");
-            setWinnerModalBtn(true);
-        }
-         console.log("number of correct answers:", correct);
-            console.log("number of incorrect answers:", incorrectAnswers.length);
-            console.log("incorrect: ", incorrectAnswers);
+
+            console.log("number of correct answers:", correct);
             setIncorrectTiles(incorrectAnswers);
             setActivateCheck(true);
              return incorrectAnswers;
@@ -195,8 +192,6 @@ function GameBoardStandardSudoku() {
         <GridStandardSudoku
           handleSetBothAxis={handleSetBothAxis}
           dataObject={game}
-          // handleSetXAxiscb2 = {handleSetXAxis2}
-          // handleSetYAxiscb2 = {handleSetYAxis2}
           cluesArray={cluesArray}
           incorrectTiles={incorrectTiles}
           activateCheck={activateCheck}
@@ -204,9 +199,7 @@ function GameBoardStandardSudoku() {
 
         <div></div>
 
-        {/* <ButtonPanelStandardSudoku
-        editTile={editTile}
-        /> */}
+    
 
 <div className="input-buttons">
 
@@ -225,6 +218,7 @@ function GameBoardStandardSudoku() {
             <button type="button" onClick={(e)=>resetBoard()}>Reset Game</button>
             <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
             <button type="button" onClick={(e)=>deleteNumber()}>del</button>
+            <button type="button" onClick={(e)=>checkIfWon()}>Winner Test</button>
         </div>
 
         <div className="reset-modal">
