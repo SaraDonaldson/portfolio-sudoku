@@ -1,6 +1,7 @@
 {
   "name": "portfolio-sudoku",
   "version": "0.1.0",
+  "homepage": "https://SaraDonaldson.github.io/portfolio-sudoku",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
@@ -15,6 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+   "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -37,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "json-loader": "^0.5.7"
   }
 }
