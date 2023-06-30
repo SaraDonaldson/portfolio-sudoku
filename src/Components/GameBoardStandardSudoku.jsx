@@ -218,7 +218,6 @@ function GameBoardStandardSudoku() {
             <button type="button" onClick={(e)=>resetBoard()}>Reset Game</button>
             <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
             <button type="button" onClick={(e)=>deleteNumber()}>del</button>
-            <button type="button" onClick={(e)=>checkIfWon()}>Winner Test</button>
         </div>
 
         <div className="reset-modal">
