@@ -5,6 +5,7 @@ import GridStandardSudoku from './GridStandardSudoku';
 import ButtonPanelStandardSudoku from './ButtonPanelStandardSudoku';
 import data from '../puzzleData.json';
 import ResetModal from './ResetModal';
+import YouWinModal from './YouWinModal';
 
 
 
@@ -20,10 +21,10 @@ function GameBoardStandardSudoku() {
     let [userGame, setUserGame] = useState([])
     let [game, setGame] = useState([]);
     let [resetGame, setResetGame]= useState(false);
-    // const [buttonPopup, setButtonPopup]= useState (false)
     const [resetModalBtn, setResetModalBtn]= useState (false);
+    const [winnerModalBtn, setWinnerModalBtn]= useState (false);
    
-    // let userGame = [];
+   
 
 
     useEffect(() => {
@@ -63,7 +64,7 @@ function GameBoardStandardSudoku() {
          console.log("userGame: ", userGame);
          setGame(tempGame);
          setUserGame(tempGame);
-        //   checkIfWon();
+         checkIfWon()
           setActivateCheck(false);
          };
 
@@ -92,6 +93,19 @@ function GameBoardStandardSudoku() {
         }
 
 
+
+        function checkIfWon(){
+            let possibleWinner= game;
+
+            console.log("check if won function started");
+            if (game === solutionData){
+            console.log("Everything is correct!");
+                setWinnerModalBtn(true);
+         }  
+        }
+
+        
+
      // Checking buttons Panel funtions
 /* ---------------------------------------------- */
 
@@ -104,8 +118,7 @@ function GameBoardStandardSudoku() {
         console.log("checkgame function started");
         if (solutionKey === userKey){
         console.log("Everything is correct!");
-        //pause timer, save time
-        //start Game is won function
+        setWinnerModalBtn(true);
      } 
     else{ 
         for(let i= 0; i <= 8; i++){
@@ -118,7 +131,11 @@ function GameBoardStandardSudoku() {
                 correct+=1;
             }   
             }  
-        }    console.log("number of correct answers:", correct);
+        }   if (correct.length === 81){
+            console.log("Everything is correct!");
+            setWinnerModalBtn(true);
+        }
+         console.log("number of correct answers:", correct);
             console.log("number of incorrect answers:", incorrectAnswers.length);
             console.log("incorrect: ", incorrectAnswers);
             setIncorrectTiles(incorrectAnswers);
@@ -206,7 +223,6 @@ function GameBoardStandardSudoku() {
 
         <div className="checking-buttons">
             <button type="button" onClick={(e)=>resetBoard()}>Reset Game</button>
-            {/* <button type="button" onClick={(e)=>setResetGame(true)}>Reset Game</button> */}
             <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
             <button type="button" onClick={(e)=>deleteNumber()}>del</button>
         </div>
@@ -217,6 +233,14 @@ function GameBoardStandardSudoku() {
             setTrigger={setResetModalBtn}
             >
             </ResetModal>
+      </div>
+
+      <div className="winner-modal">
+            <YouWinModal
+            trigger= {winnerModalBtn} 
+            setTrigger={setWinnerModalBtn}
+            >
+            </YouWinModal>
       </div>
 
     </div>
