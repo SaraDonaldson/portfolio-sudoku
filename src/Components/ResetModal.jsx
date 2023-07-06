@@ -1,14 +1,14 @@
 import React from 'react'
 
 function ResetModal({
+  resetBoard,
     trigger,
     setTrigger
 }) {
 
     function handleReset(){
-
+      resetBoard()
         setTrigger(false)
-
     }
 
 

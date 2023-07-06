@@ -1,5 +1,30 @@
 
 
+
+.game-board-standard{
+    background-color: transparent;
+    background-color: rgba(95, 33, 251, 0.134);
+    top:0;
+    position: absolute;
+    width:100%;
+
+}
+.squares-bg-container{
+    width: 100vw;
+    height: auto;
+    position: fixed;
+    top:0;
+    z-index: -1;
+}
+
+.wave-background{
+    width: 100vw;
+    height: auto;
+    position: fixed;
+    top:0;
+    z-index: -1;
+}
+
 h1{
     text-align: center;
     display: flex;
@@ -26,7 +51,6 @@ p{
     align-items: center;
     background-color: transparent;
     color: white;
-
 }
 
 .input-buttons button {
@@ -74,8 +98,8 @@ p{
 
 
 .standard-sudoku-grid-container {
-    width: 531px;
-    height: 535px;
+width: 531px;
+height: 535px;
  /* background-color: grey; */
  background-color: black;
  background:  radial-gradient(circle, rgba(167,167,255,1) 0%, rgba(22,22,98,1) 82%, rgba(52,53,70,1) 100%);
@@ -137,8 +161,6 @@ button {
     color: grey;
 }
 
-
-
 /* --------Clues - cannot be edited---------- */
 .original-nums{
  background-color:rgb(184, 184, 224);
@@ -153,7 +175,7 @@ button {
 /* .highlight-axis{
     background-color:rgb(184, 184, 224);
 } */
-.selected {
+button.selected {
     background: none; 
     background-color:radial-gradient(circle, rgb(8, 8, 64) 0%, rgb(115, 115, 245) 82%, rgb(213, 214, 235) 100%) !important;
     color: rgb(248, 56, 255);
@@ -186,6 +208,7 @@ button {
 
 /* --------feature/button functions---------- */
 .incorrect-answer {
+    /* color: rgb(222, 7, 7); */
     color: rgb(222, 7, 7);
 }
 
@@ -196,8 +219,8 @@ button {
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.409);
     border: solid 1px red;
-
 }
+
 .outer-reset-modal{
     margin: 0 auto;
     position: fixed;
@@ -205,25 +228,17 @@ button {
     left:0;
     width: 100%;
     height: 100%;
-   
     display: flex;
     justify-content: center;
     align-items: center;
     border: solid 1px blue;
 }
 
-/* h1.bg-popup-h{
-    max-height: 30px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    padding:0;
-} */
-
 .inner-reset-modal{
     position:relative;
     padding: 32px;
     width: 100%;
-    max-width: 640px;
+    /* max-width: 640px; */
     height: 200px;
     background-color: white;
     border:solid 1px green;
@@ -232,6 +247,7 @@ button {
 }
 
 .inner-reset-modal .exit-modal-btn {
+    cursor:pointer;
     position: absolute;
     top: 15px;
     right: 15px;
@@ -253,6 +269,7 @@ button {
 }
 
 .yes-reset-btn{
+    cursor:pointer;
     background-color: #e29aff;
     margin: 5px;
     height: 40px;
@@ -260,8 +277,59 @@ button {
 }
 
 .no-reset-btn{
+    cursor:pointer;
     background-color: rgb(245, 167, 136);
     margin: 5px;
     height: 40px;
     width: 80px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* .button-container{
+    width:100vw;    
+} */
+input.tile-input{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    caret-color: transparent;
+    cursor:pointer;
+}
+
+input.selected{
+    color: rgb(248, 56, 255);
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+@media only screen and (max-width: 600px){
+.standard-sudoku-grid-container{
+margin-top:20px;
+}
+.input-buttons{
+    margin-top:20px;
+    /* position:absolute; */
+    width:100%;
+}
+.checking-buttons{
+margin-top:20px;
+}
+.button-container{
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+}
 }

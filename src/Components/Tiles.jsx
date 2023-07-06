@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 
         function Tiles(
                     {
+                    editTile,
                     handleSetBothAxis,
                     selectedXAxis, 
                     selectedYAxis, 
@@ -28,7 +29,7 @@ import React,{useState, useEffect} from "react";
 
             useEffect(() => {
             let axisString = (xAxis.toString() + yAxis.toString())
-            let answer =  cluesArray.includes(axisString)
+            let answer = cluesArray.includes(axisString)
             setIsOriginalNumber(answer)
             }, [])
 
@@ -38,20 +39,25 @@ import React,{useState, useEffect} from "react";
             }, [tileValue])
 
             useEffect(() => {
-            if (activateCheck === false){
-                setIsIncorrect(false);
-            }else {
+            // if (activateCheck === false){
+            //     setIsIncorrect(false);
+            // }else {
+            // let axisString = (xAxis.toString() + yAxis.toString())
+            // let answer =  incorrectTiles.includes(axisString)
+            // setIsIncorrect(answer)
+            // }
             let axisString = (xAxis.toString() + yAxis.toString())
-            let answer =  incorrectTiles.includes(axisString)
+            // console.log('The incorrect tiles', axisString)
+            let answer = incorrectTiles.includes(axisString)
+            // console.log('Checking is incorrect', answer)
             setIsIncorrect(answer)
-            }
             }, [activateCheck, incorrectTiles, xAxis, yAxis])
 
 
 
             async function handleClick(){
             
-            console.log("original number: ", isOriginalNumber)
+            // console.log("original number: ", isOriginalNumber)
                 await setChangeVal(!changeVal);
                 handleSetBothAxis(xAxis, yAxis)
                 setSelectedXAxis(xAxis);
@@ -61,7 +67,17 @@ import React,{useState, useEffect} from "react";
               }
 
 
-
+    function handleInputChange(e){
+        console.log(e)
+        e.preventDefault()
+        let currentValue=parseInt(e.nativeEvent.data)
+        console.log(currentValue)
+        if(currentValue > 0 && currentValue < 10){
+            editTile(currentValue)
+        } else {
+            editTile(0)
+        }
+    }
 
 
     return(
@@ -71,7 +87,6 @@ import React,{useState, useEffect} from "react";
                             ${(xAxis === selectedXAxis && yAxis === selectedYAxis && !isOriginalNumber) && 'selected'} 
                             ${(xAxis === selectedXAxis || yAxis === selectedYAxis )&& 'highlight-axis'}
                             ${isOriginalNumber && 'original-nums'}
-                            ${isIncorrect && 'incorrect-answer'}
                             ${(currentTileVal !== 0 & ! isOriginalNumber) && 'edited'} 
                             ${(xAxis === 2 || xAxis === 5) && 'horizontal-divide'} 
                             ${(yAxis === 2 || yAxis === 5) && 'vertical-divide'} 
@@ -86,7 +101,21 @@ import React,{useState, useEffect} from "react";
                             ${(currentTileVal ===9) && 'tile-nine'} 
                             ${(sameAsSelected !==0 & sameAsSelected === currentTileVal) && 'selected-val'} 
                             `}
-        onClick={() => {handleClick()}}>{currentTileVal === 0 ? "": currentTileVal}</button>
+                            onClick={() => {handleClick()}}>
+                                
+                                <input type='number' className={`
+                            tile-input
+                            ${(xAxis === selectedXAxis && yAxis === selectedYAxis && !isOriginalNumber) && 'selected'} 
+                            ${isIncorrect && ' incorrect-answer '}
+                            `} 
+                            max={'9'}
+                            min={'0'}
+                style={{backgroundColor:"transparent", border:'0px solid black', width:'100%', height:'100%'}}
+                            disabled={isOriginalNumber}
+                            onChange={handleInputChange}
+                            pattern="[0-9]*"
+        value={currentTileVal === 0 ? "": currentTileVal}/>
+        </button>
     
     )
 

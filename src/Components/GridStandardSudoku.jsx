@@ -2,7 +2,7 @@ import React, { useState }  from "react";
 import Tiles from "./Tiles";
 
 
-function GridStandardSudoku({dataObject,handleSetBothAxis, cluesArray,incorrectTiles, activateCheck}) {
+function GridStandardSudoku({dataObject,handleSetBothAxis, cluesArray,incorrectTiles,editTile, activateCheck}) {
       // handleSetXAxiscb2, handleSetYAxiscb2,
   const [changeVal, setChangeVal] = useState(false)
   const [selectedXAxis, setSelectedXAxis] = useState(false)
@@ -21,8 +21,9 @@ function GridStandardSudoku({dataObject,handleSetBothAxis, cluesArray,incorrectT
   
                return arr.map((val, yAxis) => 
                   <Tiles
+                  editTile={editTile}
                   // key={Math.random() + xAxis}
-                  key={ xAxis.toString()+ yAxis.toString()}
+                  key={ yAxis.toString()+ xAxis.toString()}
                   handleSetBothAxis={handleSetBothAxis}
                   selectedXAxis={selectedXAxis} 
                   selectedYAxis ={selectedYAxis}
