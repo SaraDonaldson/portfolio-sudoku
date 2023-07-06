@@ -195,6 +195,11 @@ function GameBoardStandardSudoku() {
 
   return (
     <div className='game-board-standard'>
+        <div className='game-board-layout-container'>
+            
+
+        <div className='game-screen-left-col'>
+      
         <GridStandardSudoku
           handleSetBothAxis={handleSetBothAxis}
           dataObject={game}
@@ -203,27 +208,30 @@ function GameBoardStandardSudoku() {
           activateCheck={activateCheck}
           editTile={editTile}
         />
-
-    
-<div className="button-container">
-<div className="input-buttons" >
-            <button type="button" className="button-one" onClick={()=>editTile(1)}>1</button>
-            <button type="button" className="button-two" onClick={()=>editTile(2)}>2</button>
-            <button type="button" className="button-three" onClick={()=>editTile(3)}>3</button>
-            <button type="button" className="button-four" onClick={()=>editTile(4)}>4</button>
-            <button type="button" className="button-five" onClick={()=>editTile(5)}>5</button>
-            <button type="button" className="button-six" onClick={()=>editTile(6)}>6</button>
-            <button type="button" className="button-seven" onClick={()=>editTile(7)}>7</button>
-            <button type="button" className="button-eight" onClick={()=>editTile(8)}>8</button>
-            <button type="button" className="button-nine" onClick={()=>editTile(9)}>9</button>
-        </div> 
-
-        <div className="checking-buttons">
-            <button type="button" onClick={(e)=>toggleResetBoardModal()}>Reset Game</button>
-            <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
-            <button type="button" onClick={(e)=> editTile(0)}>del</button>
         </div>
-</div>
+
+     <div className='game-screen-right-col'>
+            <div className="button-container">
+            <div className="input-buttons" >
+                    <button type="button" className="button-one" onClick={()=>editTile(1)}>1</button>
+                    <button type="button" className="button-two" onClick={()=>editTile(2)}>2</button>
+                    <button type="button" className="button-three" onClick={()=>editTile(3)}>3</button>
+                    <button type="button" className="button-four" onClick={()=>editTile(4)}>4</button>
+                    <button type="button" className="button-five" onClick={()=>editTile(5)}>5</button>
+                    <button type="button" className="button-six" onClick={()=>editTile(6)}>6</button>
+                    <button type="button" className="button-seven" onClick={()=>editTile(7)}>7</button>
+                    <button type="button" className="button-eight" onClick={()=>editTile(8)}>8</button>
+                    <button type="button" className="button-nine" onClick={()=>editTile(9)}>9</button>
+                </div> 
+
+                <div className="checking-buttons">
+                    <button type="button" onClick={(e)=>toggleResetBoardModal()}>Reset Game</button>
+                    <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
+                    <button type="button" onClick={(e)=> editTile(0)}>del</button>
+                </div>
+                </div>
+
+     </div>
 
         <div className="reset-modal">
             <ResetModal
@@ -241,9 +249,9 @@ function GameBoardStandardSudoku() {
             </YouWinModal>
       </div>
 
-      {/* <WaveBackground/> */}
+      <WaveBackground/>
       <SquaresBackground/>
-
+      </div>
     </div>
   )
 }
