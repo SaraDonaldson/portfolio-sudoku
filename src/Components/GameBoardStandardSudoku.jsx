@@ -208,7 +208,9 @@ function GameBoardStandardSudoku() {
           activateCheck={activateCheck}
           editTile={editTile}
         />
+
         </div>
+     
 
      <div className='game-screen-right-col'>
             <div className="button-container">
@@ -225,7 +227,7 @@ function GameBoardStandardSudoku() {
                 </div> 
 
                 <div className="checking-buttons">
-                    <button type="button" onClick={(e)=>toggleResetBoardModal()}>Reset Game</button>
+                    <button className='reset-button' type="button" onClick={(e)=>toggleResetBoardModal()}>Reset Game</button>
                     <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
                     <button type="button" onClick={(e)=> editTile(0)}>del</button>
                 </div>

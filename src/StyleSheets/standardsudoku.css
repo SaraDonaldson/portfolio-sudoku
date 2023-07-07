@@ -86,12 +86,34 @@ p{
 }
 
 .input-buttons button {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(246, 211, 252);
     transition: 0.4s;
-    border: 1px solid lightgray;
+    border: none;
     height: 65px;
     width: 70px;
     border-radius: 10px;
+    /* box-shadow: 
+
+
+                bottom dimensional shadow
+                inset -0.5px -8px 2px 0px rgb(160, 160, 160),
+                inset -8px -2px 4px 0px rgb(148, 148, 148),
+                inset -9px -11px 10px 0px rgb(255, 255, 255),
+                inset 7px 5px 10px 5px rgb(242, 242, 242),
+                inset 0px 0px 0px 0px black,
+
+                right dimensional shadow
+               
+                inset -7px 0px 10px 0px rgb(242, 242, 242),
+                inset -7px 0px 15px 0px rgb(143, 143, 143),
+
+
+
+
+                -0.5px -1.5px 5px 0px rgba(255, 255, 255, 0.58),
+                -1px -2px 8px 0px rgba(157, 156, 156, 0.614),
+                2px 2px 5px 1px black,
+                 0px 0px 15px 1px rgba(0, 0, 0, 0.186); */
 } 
 .input-buttons button:hover {
     background-color: rgb(198, 198, 255);
@@ -127,16 +149,36 @@ p{
     background-color: rgb(198, 198, 255);
 } 
 
+.reset-button{
+    cursor:pointer;
+    background-color: #fb9d9d;
+    margin: 15px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border:1.5px solid white;
+    color: white;
+    text-shadow: 0px 0px 6px rgb(0, 0, 0);
+    font-weight: 600;
+    box-shadow: inset 0px 1px 1px 0px  #f64141,
+                inset -1px -2px 8px 0px  black,
+                inset 0px 2px 2px 0px  black,
+                inset 0px 1.5px 4px 5px  #f64141d3,
+                inset 2px 8px 5px 0px white,
+                inset 0px -1px 15px 0px  #f641417a,
+                inset -1px -2px 10px 0px  black,
+                inset -2px -2px 5px 5px  #ac2c2c,
+                inset 0px 0px 15px 20px  #f64141,
+                3px 8px 15px 0px black;
+}
 /* -------------------------------------------------------------------------------------- */
 /* --------Sudoku Grid---------- */
 
 
 .standard-sudoku-grid-container {
-    width: 540px;
-    height: 540px;
-    /* background-color: grey; */
+    width: 550px;
+    height: 550px;
     background-color: rgb(253, 253, 253);
-    /* background:  radial-gradient(circle, rgba(167,167,255,1) 0%, rgba(22,22,98,1) 82%, rgba(52,53,70,1) 100%); */
     margin: 0 auto;
     margin-top: 100px;
     display: flex;
@@ -144,6 +186,13 @@ p{
     border: 5px solid white;
     padding-bottom: 10px;
     border-radius: 15px;
+    box-shadow: 1px 1px 10px 1px rgb(65, 65, 65),
+                0px 0px 80px 1px rgba(0, 0, 0, 0.248);
+    background-image: url('../sudokuGridBackground.png');
+    aspect-ratio: 1/1;
+    padding:0;
+    align-items: center;
+    justify-content: center
     
 }
 
@@ -154,22 +203,28 @@ p{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    border: 5px solid white;
+    gap: 0.5px;
+    border:1px solid #9E9696;
     border-radius: 15px;
     overflow:hidden;
+    justify-items: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    
 }
 
 
 /* ----------------------------------------------------------------- */
 
 .tile {
-    /* width: 59.5px;
-    height: 59.5px; */
     height: auto;
     width: auto;
+    width: 59px; 
+    height: 59px;
     aspect-ratio: 1/1;
     color: white;
-    border: 0.1px solid rgb(168, 168, 168);
+    /* border: 0.5px solid rgb(168, 168, 168); */
+    border: none;
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -180,8 +235,8 @@ p{
     flex-wrap: wrap;
     overflow: hidden;
     padding: none !important;
-    /* border-radius: 5px; */
-    background-color: rgba(255, 249, 249, 0.788);
+    background-color: rgba(255, 255, 255, 0);
+    
 }
 
 button {
@@ -194,20 +249,24 @@ button {
 
 /* --------Tiles that are not 'clues'---------- */
 .edited {
-    background-color: rgb(215, 215, 215);
+    background-color: transparent;
+    background-color: #e29aff07;
     color: rgb(0, 0, 0);
 }
 .edited button:hover {
     color: grey;
 }
 
+
 /* --------Clues - cannot be edited---------- */
 .original-nums{
- background-color:rgb(184, 184, 224);
- border: 0.5px solid rgb(255, 255, 255);
- box-shadow: inset -1px -1px 6px 2px #2a023a39;
- transition: 0.4s;
- color: rgb(161, 6, 167);
+    background-color:rgba(140, 94, 255, 0.162);
+    border: none;
+    transition: 0.4s;
+  
+  
+  
+
 }
 
 /* --------styles for when tile is selected---------- */
@@ -218,16 +277,14 @@ button {
     z-index: 2;
 } */
 button.selected {
-    background: none; 
+    background-color: white;
     color: white;
     text-shadow: 0px 0px 3px white;
-    box-shadow: 0px 0px 6px 5px rgb(94,33,521,0.8);
-    /* border-radius: 5px; */
-    border: 1px solid white;
-    z-index: 3;
-    border-radius: 15%;
-    width: 60px;
-    height: 60.5px;
+    box-shadow: 0px 0px 6px 2px rgb(94,33,251,0.8),
+                inset 0px 0px 1px 0.5px rgb(94,33,251,0.8);
+    border: none;
+    border-radius: 10px;
+ 
     
 }
 
@@ -239,20 +296,30 @@ button.selected {
 }
 
 /* --------box section lines---------- */
+
 .horizontal-divide{
-    border-bottom: 2px solid  rgb(108, 10, 144);
+    border-bottom: 3px solid transparent; 
+   
+    /* border-bottom: 3px solid yellow; */
+    height:61.7px; 
+
 }
 
 .vertical-divide {
-    border-right: 2px solid  rgb(108, 10, 144) !important;
+    border-right: 3px solid  transparent;
+    
+    /* border-right: 3px solid  yellow; */
+    width: 61.7px; 
 
 }
+
 
 
 /* --------feature/button functions---------- */
 .incorrect-answer {
-    /* color: rgb(222, 7, 7); */
-    color: rgb(222, 7, 7);
+   background-color: transparent;
+   text-shadow: 0px 0px 10px rgba(249, 74, 74, 0.901);
+  
 }
 
 
@@ -260,8 +327,12 @@ button.selected {
 /* --------Reset Game Modal ---------- */
 .overlay{
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.409);
-    border: solid 1px red;
+    /* background-color: rgb(255, 255, 255); */
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+
 }
 
 .outer-reset-modal{
@@ -274,21 +345,31 @@ button.selected {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px blue;
+    background-color: rgba(95, 33, 251, 0.301);
+    backdrop-filter: blur(1px);
     
 }
 
 .inner-reset-modal{
     position:relative;
     padding: 32px;
-    width: 60%;
-    /* max-width: 640px; */
-    height: 200px;
-    background-color: white;
-    border:solid 1px green;
+    width: 350px;
+    height: 300px;
+    /* border: 3px solid rgba(4, 4, 4, 0.48); */
+    background-color: rgba(255, 255, 255, 0.765);
     border-radius: 2px;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.723),
+                0px 0px 20px 5px rgba(0, 0, 0, 0.519),
+                0px 0px 15px 2px rgba(65, 24, 171, 0.899),
+                0px 0px 600px 20px rgba(29, 9, 79, 0.899),
+                inset 2px 2px 5px 0px black,
+                inset 5px 5px 8px 0px rgb(250, 250, 250),
+                inset 0px 16px 15px 2px rgba(95, 33, 251, 0.899);
+    backdrop-filter: blur(10px);
+   
+   
 }
 
 .inner-reset-modal .exit-modal-btn {
@@ -315,10 +396,26 @@ button.selected {
 
 .yes-reset-btn{
     cursor:pointer;
-    background-color: #e29aff;
-    margin: 5px;
-    height: 40px;
-    width: 60px;
+    background-color: #fb9d9d;
+    margin: 15px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border:1.5px solid white;
+    color: white;
+    text-shadow: 0px 0px 6px rgb(0, 0, 0);
+    font-weight: 600;
+    box-shadow: inset 0px 1px 1px 0px  #f64141,
+                inset -1px -2px 8px 0px  black,
+                inset 0px 2px 2px 0px  black,
+                inset 0px 1.5px 4px 5px  #f64141d3,
+                inset 2px 8px 5px 0px white,
+                inset 0px -1px 15px 0px  #f641417a,
+                inset -1px -2px 10px 0px  black,
+                inset -2px -2px 5px 5px  #ac2c2c,
+                inset 0px 0px 15px 20px  #f64141,
+                3px 8px 15px 0px black;
+
 }
 
 .no-reset-btn{
