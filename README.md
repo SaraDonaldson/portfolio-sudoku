@@ -1,3 +1,18 @@
+# Project Overview
+A light front end only version of the original full stack app. See the demo [here](https://saradonaldson.github.io/portfolio-sudoku/).
+
+## Demo vs Original Project
+- The [orginal project](https://github.com/SaraDonaldson/mvp-puzzle-project) dynamically loaded and corrected puzzles from the DB and had a dynamic puzzle checker
+- This Demo has a hard coded problem and solution
+- All components in the puzzle need to work with the puzzle logic and display information to the user accurately. The Demo has room for more puzzles to be added without changing much of the styling logic.
+- The original project has a user dashboard and a dynamic menu with various levels
+
+## Future Development
+I aim to deploy a dynamic full stack version by the end of January 2024.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
