@@ -146,21 +146,6 @@ function GameBoardStandardSudoku() {
              return incorrectAnswers;   
         }
 
-    //  Dead code
-    // function deleteNumber(){
-    //     console.log("del number started");
-    //     console.log("x axis: ", objectX);
-    //     console.log("y axis: ", objectY);
-    //     console.log("startData", startData[objectX][objectY]);
-    //     console.log("game Data", game[objectX][objectY]);
-    //     console.log("userGame", userGame[objectX][objectY]);
-    //     userGame = game; 
-    //     if (startData[objectX][objectY] === 0){
-    //         userGame[objectX][objectY] = 0;
-    //    }
-    //           setGame(userGame);
-    //           setActivateCheck(false);
-    //      }
     
     function resetBoard (){
         let tempGame = userGame;
@@ -228,8 +213,8 @@ function GameBoardStandardSudoku() {
 
                 <div className="checking-buttons">
                     <button className='reset-button' type="button" onClick={(e)=>toggleResetBoardModal()}>Reset Game</button>
-                    <button type="button" onClick={(e)=>checkGame()}>Check Answers</button>
-                    <button type="button" onClick={(e)=> editTile(0)}>del</button>
+                    <button className='check-game-button' type="button" onClick={(e)=>checkGame()}>Check Answers</button>
+                    <button className='del-selected-button' type="button" onClick={(e)=> editTile(0)}>del</button>
                 </div>
                 </div>
 

@@ -57,11 +57,6 @@ p{
 }
 
 .button-container{
-    /* height: 540px;
-    display:flex;
-    margin-top: 100px;
-    flex-direction: column;
-    justify-content: center; */
     background-color: rgba(255, 255, 255, 0.244);
     border-radius: 10px;
     padding:48px;
@@ -86,37 +81,26 @@ p{
 }
 
 .input-buttons button {
-    background-color: rgb(246, 211, 252);
+    cursor: pointer;
+    border: 2px solid rgb(202, 182, 251);
+    background-color: rgb(198, 198, 255);
     transition: 0.4s;
     border: none;
     height: 65px;
     width: 70px;
     border-radius: 10px;
-    /* box-shadow: 
-
-
-                bottom dimensional shadow
-                inset -0.5px -8px 2px 0px rgb(160, 160, 160),
-                inset -8px -2px 4px 0px rgb(148, 148, 148),
-                inset -9px -11px 10px 0px rgb(255, 255, 255),
-                inset 7px 5px 10px 5px rgb(242, 242, 242),
-                inset 0px 0px 0px 0px black,
-
-                right dimensional shadow
-               
-                inset -7px 0px 10px 0px rgb(242, 242, 242),
-                inset -7px 0px 15px 0px rgb(143, 143, 143),
-
-
-
-
-                -0.5px -1.5px 5px 0px rgba(255, 255, 255, 0.58),
-                -1px -2px 8px 0px rgba(157, 156, 156, 0.614),
-                2px 2px 5px 1px black,
-                 0px 0px 15px 1px rgba(0, 0, 0, 0.186); */
+    font-weight: 600;
+    box-shadow:
+                inset -0.5px -8px 5px 0px rgba(74, 26, 195, 0.3),
+                inset -8px -2px 7px 0px rgba(74, 26, 195, 0.3),
+                inset 7px 5px 10px 3px rgb(242, 242, 242, 0.5),
+                inset -7px 0px 12px 0px  rgb(202, 182, 251, 0.7),
+                inset -7px 0px 18px 0px rgb(143, 143, 143, 0.7),
+                2px 2px 5px 1px rgba(0, 0, 0, 0.25),
+                 0px 0px 15px 1px rgba(0, 0, 0, 0.186);
 } 
 .input-buttons button:hover {
-    background-color: rgb(198, 198, 255);
+   border: 2px solid rgb(94, 33, 251);
 } 
 /* ------------------------------------------------------------------------------ */
 /* --------fn buttons---------- */
@@ -134,34 +118,59 @@ p{
     align-items: center;
     background-color: transparent;
     color: white;
+    
 
 }
 
 .checking-buttons button {
-    background-color: aliceblue;
+    cursor:pointer;
+    margin: 15px;
     transition: 0.4s;
-    border: 1px solid rgb(94, 33, 251);
     height: 55px;
     width: 80px;
     border-radius: 10px;
+    font-weight: 600;
+   
 } 
 .checking-buttons button:hover {
-    background-color: rgb(198, 198, 255);
+    height: 57.75px;
+    width: 84px;
+    margin: 13.5px;
 } 
+.check-game-button{
+    background-color: rgb(94, 33, 251);
+    color:rgb(246, 211, 252);
+    border: 0.5px solid rgb(246, 211, 252);
+    box-shadow: inset 0px 1px 1px 0px  rgb(94, 33, 251),
+                inset -1px -2px 8px 0px  rgba(30, 30, 30 ,0.25),
+                inset 0px 2px 2px 0px  rgba(30, 30, 30 ,0.25),
+                inset 0px 1.5px 4px 5px  rgb(94, 33, 251),
+                inset 2px 8px 5px 0px white,
+                inset 0px -1px 15px 0px  rgb(94, 33, 251),
+                inset -1px -2px 10px 0px  black,
+                inset 0px 0px 15px 20px  rgb(94, 33, 251),
+                3px 8px 15px 0px rgba(20, 20, 20 ,0.7);
+
+}
+.del-selected-button{
+    border: 1px solid rgb(94, 33, 251);
+    background-color: rgb(246, 211, 252);
+    color: rgb(94, 33, 251);
+    box-shadow:inset -1px -2px 8px 0px  rgba(30, 30, 30 ,0.25),
+    inset 0px 2px 2px 0px  rgb(94, 33, 251),
+    inset 2px 6px 6px 0px white,
+    inset -1px -2px 10px 0px  rgb(94, 33, 251),
+    3px 8px 15px 0px rgba(20, 20, 20 ,0.4);
+}
 
 .reset-button{
-    cursor:pointer;
     background-color: #fb9d9d;
-    margin: 15px;
-    height: 80px;
-    width: 80px;
     border-radius: 50%;
-    border:1.5px solid white;
+    border:0.5px solid white;
     color: white;
     text-shadow: 0px 0px 6px rgb(0, 0, 0);
-    font-weight: 600;
     box-shadow: inset 0px 1px 1px 0px  #f64141,
-                inset -1px -2px 8px 0px  black,
+                inset -1px -2px 8px 0px  rgba(30, 30, 30 ,0.5),
                 inset 0px 2px 2px 0px  black,
                 inset 0px 1.5px 4px 5px  #f64141d3,
                 inset 2px 8px 5px 0px white,
@@ -169,7 +178,7 @@ p{
                 inset -1px -2px 10px 0px  black,
                 inset -2px -2px 5px 5px  #ac2c2c,
                 inset 0px 0px 15px 20px  #f64141,
-                3px 8px 15px 0px black;
+                3px 8px 15px 0px rgba(20, 20, 20 ,0.7);
 }
 /* -------------------------------------------------------------------------------------- */
 /* --------Sudoku Grid---------- */
@@ -239,9 +248,6 @@ p{
     
 }
 
-button {
-    /* border-radius: none !important; */
-}
 
 /* --------------------------------------------------------------------- */
 /* -------- Conditional tile classes ---------- */
@@ -318,7 +324,7 @@ button.selected {
 /* --------feature/button functions---------- */
 .incorrect-answer {
    background-color: transparent;
-   text-shadow: 0px 0px 10px rgba(249, 74, 74, 0.901);
+   color: rgba(249, 74, 74, 0.901);
   
 }
 
