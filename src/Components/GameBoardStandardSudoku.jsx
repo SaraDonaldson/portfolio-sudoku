@@ -53,6 +53,7 @@ function GameBoardStandardSudoku() {
     // edit the selected tile as an array item (x and y are the array and index no)
     //If not an initial clue, save the entered value to the current game data array
     async function editTile (val){
+        if(objectX && objectY){
         console.log('INPUT', val)
        setUserGame(game);
        let tempGame = [...userGame];
@@ -65,7 +66,7 @@ function GameBoardStandardSudoku() {
          setGame(tempGame);
          setUserGame(tempGame);
          checkIfWon()
-         setActivateCheck(false);
+         setActivateCheck(false);}
          };
 
 

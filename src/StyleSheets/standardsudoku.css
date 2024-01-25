@@ -452,6 +452,7 @@ input.tile-input{
 
 input.selected{
     color: rgb(94, 33, 251);
+    cursor:text;
 }
 
 /* Firefox */

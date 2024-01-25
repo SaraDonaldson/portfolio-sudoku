@@ -103,7 +103,7 @@ import React,{useState, useEffect} from "react";
                             `}
                             onClick={() => {handleClick()}}>
                                 
-                                <input type='number' className={`
+                                <input type='number'  onKeyDown={(e) =>["e", "E", "+", "-", "."].includes(e.key) && e.preventDefault()} className={`
                             tile-input
                             ${(xAxis === selectedXAxis && yAxis === selectedYAxis && !isOriginalNumber) && 'selected'} 
                             ${isIncorrect && ' incorrect-answer '}
