@@ -23,7 +23,7 @@ function ResetModal({
         onClick={()=> setTrigger(false)}
         >x</button>
 
-        <h3> Are you sure you want to reset?</h3>
+        <h3> Are you sure?</h3>
         <div className='modal-select-btns-cont'>
         <button 
         className='yes-reset-btn'
@@ -32,7 +32,7 @@ function ResetModal({
         <button 
         className='no-reset-btn'
         onClick={()=> setTrigger(false)}
-        >exit</button>
+        >Exit</button>
         </div>
     </div>
 

@@ -23,16 +23,9 @@ function YouWinModal({
         onClick={()=> setTrigger(false)}
         >x</button>
 
-        <h3>You Won!</h3>
+        <h3 className='you-won-txt'>You Won!</h3>
         <div className='modal-select-btns-cont'>
-        <button 
-        className='yes-reset-btn'
-        onClick={()=> handleReset()}
-        >Reset</button>
-        <button 
-        className='no-reset-btn'
-        onClick={()=> setTrigger(false)}
-        >exit</button>
+
         </div>
     </div>
 

@@ -7,7 +7,7 @@
     top:0;
     position: absolute;
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
 
 }
 .squares-bg-container{
@@ -46,6 +46,7 @@ p{
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
     gap: 5%;
+    max-height:fit-content;
 }
 
 .game-screen-right-col{
@@ -55,7 +56,9 @@ p{
     flex-direction: column;
     justify-content: center;
 }
-
+.game-screen-left-col{
+    display: flex;
+}
 .button-container{
     background-color: rgba(255, 255, 255, 0.244);
     border-radius: 10px;
@@ -360,20 +363,17 @@ button.selected {
     position:relative;
     padding: 32px;
     width: 350px;
-    height: 300px;
-    /* border: 3px solid rgba(4, 4, 4, 0.48); */
-    background-color: rgba(255, 255, 255, 0.765);
+    height: 260px;
+    border: 8px solid rgb(197, 168, 255);
+    background-color: rgb(246, 243, 252, 0.9);
     border-radius: 2px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.723),
                 0px 0px 20px 5px rgba(0, 0, 0, 0.519),
                 0px 0px 15px 2px rgba(65, 24, 171, 0.899),
-                0px 0px 600px 20px rgba(29, 9, 79, 0.899),
-                inset 2px 2px 5px 0px black,
-                inset 5px 5px 8px 0px rgb(250, 250, 250),
-                inset 0px 16px 15px 2px rgba(95, 33, 251, 0.899);
-    backdrop-filter: blur(10px);
+                0px 0px 600px 20px rgba(29, 9, 79, 0.899);
+    backdrop-filter: blur(8px);
    
    
 }
@@ -383,12 +383,25 @@ button.selected {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: blue;
+    background-color:rgb(197, 168, 255);
     color:white;
     height:35px;
     width: 35px;
-    border-radius: 2px;
+    font-weight: 800;
+    font-size: large;
+    border:1px solid #9E9696;
+    border-radius: 5px;
     transition: 0.4s;
+
+}
+
+.you-won-txt{
+    display:flex;
+    justify-content: center;
+    font-size: xx-large;
+    padding: 20%;
+    
+
 }
 .inner-reset-modal .exit-modal-btn:hover {
     background-color: rgb(1, 1, 191);
@@ -406,8 +419,9 @@ button.selected {
     margin: 15px;
     height: 80px;
     width: 80px;
+    margin-right: 20%;
     border-radius: 50%;
-    border:1.5px solid white;
+    border:1.5px solid rgb(198, 198, 198);
     color: white;
     text-shadow: 0px 0px 6px rgb(0, 0, 0);
     font-weight: 600;
@@ -426,10 +440,19 @@ button.selected {
 
 .no-reset-btn{
     cursor:pointer;
-    background-color: rgb(245, 167, 136);
+    background-color: rgb(197, 168, 255);
+    border:1px solid #9E9696;
     margin: 5px;
-    height: 40px;
+    height: 60px;
     width: 80px;
+    border-radius: 10px;
+    transition: 0.4s;
+    font-weight: 600;
+}
+
+.no-reset-btn:hover{
+    background-color: rgb(135, 75, 255);
+    color: white;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -464,21 +487,155 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+@media only screen and (max-width: 1000px){
+    
+    .game-board-layout-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        margin:0 auto;
+        padding:none;
+        gap:0;
+        transition: all 1s;       
+     }
+    
+    .game-screen-right-col{
+        height:fit-content;
+        margin:0;
+        transition: all 0.8s;
+    }
+
+    .game-screen-left-col{
+        scale:72%;
+        margin:0;
+        padding: none;
+        max-height:65vh;
+        position:sticky;
+        top:0;
+        transition: all 0.8s;
+    }
+    .standard-sudoku-grid-container{
+        margin-top: 0;
+        align-self: flex-start;
+        transition: all 0.8s;
+        }
+    .standard-grid {
+       transition: all 0.8s;
+        }
+    .tile{
+        flex-wrap: nowrap;
+        font-size:medium;
+    }
+    .button-container{
+        padding:5%;
+        scale: 80%;
+        transition: all 0.8s;
+    
+    }
+    .input-buttons{
+       display:none;
+       transition: all 0.8s;
+    }
+
+    .checking-buttons{
+        margin:0;
+        height:fit-content;
+        grid-template-columns: 1fr 1fr;
+        transition: all 0.8s;
+    }
+    
+    .del-selected-button{
+        display:none;
+        transition: all 0.8s;
+    }
+
+}
+
+@media only screen and (max-width: 800px){
+    .game-board-layout-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin:0 auto;
+        padding:none;
+        
+     }
+    
+
+     .game-screen-right-col{
+         height:fit-content;
+         margin:0;
+     
+     }
+     .game-screen-left-col{
+         scale:75%;
+         margin:0;
+         padding: none;
+         max-height:70vh;
+     }
+    
+    .button-container{
+        padding:5%;
+        scale: 80%;
+    
+    }
+    .checking-buttons{
+        margin:0;
+        height:fit-content;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+
 @media only screen and (max-width: 600px){
 .standard-sudoku-grid-container{
 margin-top:20px;
 }
-.input-buttons{
-    margin-top:20px;
-    /* position:absolute; */
-    width:100%;
-}
+
 .checking-buttons{
-margin-top:20px;
+    margin-top:20px;
 }
 .button-container{
     display:flex;
     justify-content: center;
     flex-direction:column;
 }
+}
+@media only screen and (max-width: 450px){
+.game-board-layout-container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin:0 auto;
+   padding:none;
+   
+}
+.standard-sudoku-grid-container{
+    margin-top: 0;
+    align-self: flex-start;
+    }
+
+.game-screen-right-col{
+    height:fit-content;
+    margin:0;
+
+}
+.game-screen-left-col{
+    scale:60%;
+    margin:0;
+    padding: none;
+    max-height:60vh;
+}
+.button-container{
+    padding:5%;
+    scale: 80%;
+
+}
+.checking-buttons{
+    margin:0;
+    height:fit-content;
+    grid-template-columns: 1fr 1fr;
+}
+
 }
